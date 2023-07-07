@@ -1,0 +1,112 @@
+package codigo6;
+public class MangosNaranjas {
+	
+		//1.atributos
+		private int mangos;
+		private int naranjas;
+		
+		
+		//2.Constructores
+		public MangosNaranjas(int mangos, int naranjas) {
+			super();
+			this.mangos = mangos;
+			this.naranjas = naranjas;
+		}
+
+
+		
+		//3. getters y setters
+		public int getMangos() {
+			return mangos;
+		}
+
+
+
+		public void setMangos(int mangos) {
+			this.mangos = mangos;
+		}
+
+
+
+		public int getNaranjas() {
+			return naranjas;
+		}
+
+
+
+		public void setNaranjas(int naranjas) {
+			this.naranjas = naranjas;
+		}
+//4. Metodos
+		//Metodo imprimir
+		public void jugosos(){
+			System.out.println("Los más frescos del estado");
+		}
+		
+
+		//Metodo meter cajas
+		public int mangosEnCajas(int mangos) {
+			int mangosPorCaja = 103;
+			int cajas = mangos / mangosPorCaja;
+			return cajas;
+		}
+		
+		public int naranjasEnCajas(int naranjas) {
+			int naranjasPorCaja = 97;
+			int cajas = naranjas / naranjasPorCaja;
+			return cajas;
+		}
+
+		public int totalCajas(int cajasMangos, int cajasNaranjas) {
+			int total =  cajasMangos + cajasNaranjas;
+			return total;
+		}
+
+		
+		
+		//tostring
+		@Override
+		public String toString() {
+			return "MangosNaranjas [mangos=" + mangos + ", naranjas=" + naranjas + "]";
+		}
+		
+		
+	}
+
+
+CLASE MAIN:
+
+package codigo6;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+//FIZZ BUZZ
+
+	        FizzBuzz fizzBuzz = new FizzBuzz();
+	        fizzBuzz.imprimir(); //Se manda  allamar el metodo imprimir 
+	           
+	        
+	     // Mangos naranjas
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Introduce 2 números");
+			System.out.println("Introduce el número de mangos");
+			int mangos = scanner.nextInt();
+			System.out.println("Introduce el número de naranjas");
+			int naranjas = scanner.nextInt();
+
+			MangosNaranjas mangosNaranjas = new MangosNaranjas(mangos, naranjas);
+			
+			int cajasMangos = mangosNaranjas.mangosEnCajas(mangos);
+			int cajasNaranjas = mangosNaranjas.naranjasEnCajas(naranjas);
+			int cajasTotal = mangosNaranjas.totalCajas(cajasMangos, cajasNaranjas);
+			
+			System.out.println("El numero de cajas es: " + cajasTotal);
+			mangosNaranjas.jugosos();
+			
+	        
+	}
+
+}
